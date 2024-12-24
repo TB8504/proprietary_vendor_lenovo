@@ -56,6 +56,25 @@ cc_prebuilt_library_shared {
 	soc_specific: true,
 }
 
+cc_prebuilt_library_shared {
+        name: "libmemalloc",
+        owner: "lenovo",
+        strip: {
+                none: true,
+        },
+        target: {
+                android_arm: {
+                        srcs: ["proprietary/vendor/lib/libmemalloc.so"],
+                },
+                android_arm64: {
+                        srcs: ["proprietary/vendor/lib64/libmemalloc.so"],
+                },
+        },
+        compile_multilib: "both",
+        check_elf_files: false,
+        prefer: true,
+}
+
 android_app_import {
 	name: "QtiTelephonyService",
 	owner: "lenovo",
